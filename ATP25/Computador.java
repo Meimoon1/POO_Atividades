@@ -6,6 +6,6 @@ public class Computador{
 
     @Override
     public String toString() {
-        return "Marca: "+marca+"\nMemória Ram:"+memoriaRam+ "\nProcessador: "+processador+"\nDisco Rígido: "+discoRigido+"\n";
+        return "Marca: "+marca+"\nMemória Ram: "+memoriaRam+ "\nProcessador: "+processador+"\nDisco Rígido: "+discoRigido+"\n";
     }
 }
