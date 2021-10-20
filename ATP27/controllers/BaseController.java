@@ -17,7 +17,7 @@ public class BaseController<T>{
     }
 
     public void update(T obj){
-        if(this.informacoes.contains(obj)){
+        if(existe(obj)){
             this.delete(obj);
             this.create(obj);
         }
@@ -25,6 +25,9 @@ public class BaseController<T>{
 
     public void delete(T obj){
         this.informacoes.remove(obj);
+    }
+    public boolean existe(T obj){
+        return this.informacoes.contains(obj);
     }
 
    
