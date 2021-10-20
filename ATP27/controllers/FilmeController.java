@@ -1,5 +1,6 @@
 package controllers;
+import modells.Filme;
 
-public class FilmeController {
+public class FilmeController extends BaseController<Filme>{
     
 }

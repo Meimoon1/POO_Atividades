@@ -23,7 +23,6 @@ public class BaseController<T>{
         }
     }
 
-
     public void delete(T obj){
         this.informacoes.remove(obj);
     }
