@@ -26,7 +26,7 @@ public class Main {
         dados.remover(p2);
         
         
-        
+       // System.out.println(p1.equals(p2));
         
     }
 }
