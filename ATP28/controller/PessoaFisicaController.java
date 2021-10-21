@@ -1,5 +1,5 @@
 package controller;
 
-public class PessoaFisicaController{
+public class PessoaFisicaController extends BaseController<PessoaFisicaController>{
     
 }
