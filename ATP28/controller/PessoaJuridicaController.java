@@ -1,5 +1,5 @@
 package controller;
 
-public class PessoaJuridicaController {
-    
+public class PessoaJuridicaController extends BaseController<PessoaJuridicaController>{
+  
 }
