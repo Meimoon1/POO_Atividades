@@ -7,6 +7,6 @@ public class Serie {
 
     @Override
     public String toString() {
-        return "ID:"+this.id+"Nome:"+this.nome+ "Gênero: "+this.genero+"Número de Temporadas: "+this.numTemporadas+"\n";
+        return "ID:"+this.id+"\nNome:"+this.nome+ "\nGênero: "+this.genero+"\nNúmero de Temporadas: "+this.numTemporadas+"\n";
     }
 }

@@ -6,6 +6,6 @@ public class Filme{
     
     @Override
     public String toString() {
-        return "ID:"+this.id+"Nome: "+ this.nome + "Gênero: "+this.genero;
+        return "ID:"+this.id+"\nNome: "+ this.nome + "\nGênero: "+this.genero+"\n";
     }
 }
