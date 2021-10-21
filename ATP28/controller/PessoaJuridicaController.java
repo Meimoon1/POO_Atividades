@@ -1,5 +1,6 @@
 package controller;
+import modells.PessoaJuridica;
 
-public class PessoaJuridicaController extends BaseController<PessoaJuridicaController>{
+public class PessoaJuridicaController extends BaseController<PessoaJuridica>{
   
 }

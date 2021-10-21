@@ -1,5 +1,6 @@
 package controller;
+import modells.Endereco;
 
-public class EnderecoController extends BaseController<EnderecoController>{
+public class EnderecoController extends BaseController<Endereco>{
     
 }
