@@ -2,51 +2,74 @@ import java.util.Scanner;
 public class Main{
     public static void main(String[] args) {
       Scanner sc = new Scanner(System.in);
-      menu(sc);
-    }
-    public int somar(int num1, int num2){
-        int soma = num1 + num2;
-        return soma;
-    }
+      Calculadora c = new Calculadora();
 
-    public void subtrair(int num1, int num2){
-        int subtrair = num1 - num2;
-    }
+      int opcao = 0;
+      do{
+          menu();
+          opcao = escolhaMenu(sc);
+          switch(opcao){
+              case 1 :
+              //Implementar para ser geral essa mensagem pedindo numero
+                System.out.print("Informe um número:");
+                int num1 = Integer.parseInt(sc.nextLine());
+                System.out.print("Informe um número:");
+                int num2 = Integer.parseInt(sc.nextLine());
+                int resultado = c.somar(num1, num2);           
+                System.out.println("A soma é:"+resultado);      
+              break;
 
-    public void multiplicar(int num1, int num2){
-        int multiplicar = num1 * num2;
-    }
+              case 2:
+              break;
 
-    public void dividir(int num1, int num2){
-        double dividir = num1 / num2;
-    }
+              case 3:
+              break;
 
-    public static int menu(Scanner sc){
+              case 4:
+                try {
+                   c.dividir(3, 1);
+                } catch (Exception e) {
+                    //TODO: handle exception
+                }
+              break;
+
+              default:
+                System.out.println("Opção inválida");
+              break;
+          }
+      }while (opcao != 0);
+    }
+   
+
+    public static void menu(){
         System.out.println("----------Calculadora-----------");
-        System.out.println("1-Somar \n2-Subtrair \n3-Multiplicar \n4-Dividir \n5-Sair");
+        System.out.println("1-Somar \n2-Subtrair \n3-Multiplicar \n4-Dividir");
+    }    
+
+    public static int escolhaMenu(Scanner sc){
+        System.out.print("Escolha uma opção: ");
         int opcao = Integer.parseInt(sc.nextLine());
         return opcao;
     }
 
-    public void escolhaMenu(Scanner sc){
-        int opcao = menu(sc);
-        do{
-            switch(opcao){
-                case 1 :
-                   int r = somar(2, 3);
-                   System.out.println(r);
-                break;
-                case 2:
-                break;
-                case 3:
-                break;
-                case 4:
-                break;
-                case 5:
-                break;
-                default:
-                break;
+    public static int lerNumero(String mensagem){
+        int numero = 0;
+        boolean validacao = true;
+
+        do {
+            System.out.println(mensagem);
+            try {
+                numero = Integer.parseInt(sc.nextLine());
+            } catch (NumberFormatException ex) {
+                System.out.println("Número inválido. Digite Novamente!");
+                validacao = false;
             }
-        }while (opcao != 0);
+            
+        } while (!validacao);
+        return numero;
+        
     }
+
+    //comentar bloco ctrl+k+c
+    //descomentar ctrl+u
 }
