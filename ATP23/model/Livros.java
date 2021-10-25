@@ -1,33 +1,23 @@
 package model;
 public class Livros{
-    private int id;
-    private String nome;
-    private String autor;
+    public int id;
+    public String nome;
+    public String autor;
 
-    public void setId(int id){
-        this.id = id;
-    }
-    public int getId(){
-        return id;
-    }
-
-    public void setNome(String nome){
-        this.nome = nome;
-    }
-    public String getNome(){
-        return nome;
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof Livros){
+            Livros outro =(Livros)obj;
+            if(this.id == outro.id){
+                return true;
+            }
+        }
+        return false;
     }
 
-    public void setAutor(String autor){
-        this.autor = autor;
-    }
-    public String getAutor(){
-        return autor;
-    }
-    
     @Override
     public String toString() {
-        return " Id: "+id+"\n Nome:"+ nome+ "\n Autor:"+autor;
+        return " Id: "+this.id+"\n Nome:"+ this.nome+ "\n Autor:"+ this.autor;
     }
     
 }

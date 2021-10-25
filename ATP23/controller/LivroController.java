@@ -3,7 +3,11 @@ import java.util.ArrayList;
 import model.Livros;
 
 public class LivroController {
-    private ArrayList<Livros> livros = new ArrayList<Livros>();
+    private ArrayList<Livros> livros;
+
+    public LivroController(){
+        this.livros = new ArrayList<Livros>();
+    }
 
     public void create(Livros l){
         this.livros.add(l);
