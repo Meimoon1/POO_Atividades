@@ -1,9 +1,8 @@
 package controllers;
 import java.util.ArrayList;
 
-import modells.Base;
 
-public class BaseController<T>{
+public abstract class BaseController<T>{
     private ArrayList<T> dados;
 
     public BaseController(){

@@ -1,5 +1,5 @@
 package controllers;
-
-public class ProdutoController {
+import modells.Produto;
+public class ProdutoController extends BaseController<Produto>{
     
 }
