@@ -84,7 +84,7 @@ public class View {
     }
 
    
-
+// precisa consertar que a validação da escolha do menu não ta funcionando e fazer outras validaçoes de erro
     
 
 
