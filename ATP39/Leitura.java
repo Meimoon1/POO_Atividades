@@ -12,8 +12,8 @@ public class Leitura{
             BufferedReader br = new BufferedReader(isr);
 
             while(br.ready()){
-                String linha = br.readLine();
-                System.out.println(linha);
+                String nomes = br.readLine();
+                System.out.println(nomes);
             }
             br.close();
             } catch (FileNotFoundException e) {
