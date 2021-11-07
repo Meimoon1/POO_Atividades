@@ -15,7 +15,7 @@ public class View{
 
        //convertendo de objeto para String
         try {
-            FileWriter fw = new FileWriter("Empresas.csv",true);
+            FileWriter fw = new FileWriter("ex1/Empresas.csv",true);
             String empresaString = String.format("%s;%s;%s\n",e1.nome, e1.cnpj,e1.ramo);
             fw.write(empresaString);
             fw.close();    
@@ -26,7 +26,7 @@ public class View{
 
         //convertendo de String para objeto
         try {
-            Scanner sc = new Scanner(new File("Empresas.csv"));
+            Scanner sc = new Scanner(new File("ex1/Empresas.csv"));
             while(sc.hasNextLine()){
                 String linha = sc.nextLine();
                 String[] empresaString = linha.split(";");
