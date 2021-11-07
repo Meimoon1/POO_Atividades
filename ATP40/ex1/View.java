@@ -9,9 +9,9 @@ import java.util.Scanner;
 public class View{
     public static void main(String[] args) {
         Empresa e1 = new Empresa();
-        e.nome = "Capgemini";
-        e.cnpj = "00000000000000";
-        e.ramo = "Tecnológico";
+        e1.nome = "Capgemini";
+        e1.cnpj = "00000000000000";
+        e1.ramo = "Tecnológico";
 
        //convertendo de objeto para String
         try {
@@ -26,7 +26,7 @@ public class View{
 
         //convertendo de String para objeto
         try {
-            Scanner sc = new Scanner(new File("Carros.csv"));
+            Scanner sc = new Scanner(new File("Empresas.csv"));
             while(sc.hasNextLine()){
                 String linha = sc.nextLine();
                 String[] empresaString = linha.split(";");
@@ -35,6 +35,7 @@ public class View{
                 e.nome = empresaString[0];
                 e.cnpj = empresaString[1];
                 e.ramo = empresaString[2];
+                System.out.printf("%s - %s - %s", e.nome, e.cnpj, e.ramo);
 
             }
         } 
