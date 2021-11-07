@@ -1,24 +1,45 @@
 package ex1;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
 
 public class View{
-    private static String fileName = "ex1/empresas.csv";
     public static void main(String[] args) {
-        Empresa empresa = new Empresa();
-        empresa.nome = "Capgemini";
-        empresa.cnpj = "00000000000000";
-        empresa.ramo = "Tecnológico";
+        Empresa e1 = new Empresa();
+        e.nome = "Capgemini";
+        e.cnpj = "00000000000000";
+        e.ramo = "Tecnológico";
 
-        String empresaString = String.format("%s;%s;%s", empresa.nome, empresa.cnpj, empresa.ramo);
-
-
-        //escrita
+       //convertendo de objeto para String
         try {
-            FileWriter fileWriter = new FileWriter(fileName,true);
-            
-        } catch (Exception e) {
-            //TODO: handle exception
+            FileWriter fw = new FileWriter("Empresas.csv",true);
+            String empresaString = String.format("%s;%s;%s\n",e1.nome, e1.cnpj,e1.ramo);
+            fw.write(empresaString);
+            fw.close();    
+        } 
+        catch (IOException ex) {
+            System.out.println("Não foi possível abrir o arquivo");
+        }
+
+        //convertendo de String para objeto
+        try {
+            Scanner sc = new Scanner(new File("Carros.csv"));
+            while(sc.hasNextLine()){
+                String linha = sc.nextLine();
+                String[] empresaString = linha.split(";");
+
+                Empresa e = new Empresa();
+                e.nome = empresaString[0];
+                e.cnpj = empresaString[1];
+                e.ramo = empresaString[2];
+
+            }
+        } 
+        catch (FileNotFoundException ex) {
+            System.out.println("Não foi possível abrir o arquivo");
         }
     }
 }
