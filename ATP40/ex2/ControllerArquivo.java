@@ -6,14 +6,17 @@ import java.io.IOException;
 public class ControllerArquivo implements IController{
 
 
-    public void salvar(String dado) {
+    public String salvar(PontosTuristicos model) {
+        String retorno;
         try {
-            FileWriter fw = new FileWriter("Dados.txt",true);
-            fw.write(dado);
+            FileWriter fw = new FileWriter("pontosturisticos.csv",true);
+            fw.write(model.toString() + "\n");
             fw.close();
+            retorno = String.format("Ponto turístico: % salvo com sucesso",model.nome)
         } catch (IOException e) {
-            System.out.println("Não foi possível abrir o arquivo");
+            System.out.println("Erro ao salvar ponto turístico");
         }
+        return retorno;
     }
     
 }
