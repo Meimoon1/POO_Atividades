@@ -10,21 +10,19 @@ public class Classe1 {
             Connection cn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "123456");
 
             Statement statement = cn.createStatement();
-            statement.execute("SELECT * FROM produtos");
+            statement.execute("SELECT * FROM produto");
             ResultSet resultado = statement.getResultSet();
             
             while(resultado.next()){
                 int id = resultado.getInt("id");
                 String nome = resultado.getString("nome");
                 String descricao = resultado.getString("descricao");
-                String
-
+                float preco = resultado.getFloat("preco");
+                System.out.println("Id:"+id+"Nome:"+nome+"Descricao:"+descricao+"Preço:"+preco+"\n");
             }
-
-
         } 
         catch (SQLException e) {
-            System.out.println("Não foi possível conectar");
+            e.printStackTrace();
         }
    } 
 }
