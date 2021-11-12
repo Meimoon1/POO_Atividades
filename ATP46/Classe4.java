@@ -9,7 +9,7 @@ public class Classe4 {
             Connection cn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "123456");
      
             Statement statement = cn.createStatement();
-            String sql = "DELETE FROM pessoa where id<3";
+            String sql = "DELETE FROM produto where id<3";
             statement.execute(sql);
             int linhasAfetadas = statement.getUpdateCount();
             System.out.println("O número de linhas afetas foi:"+linhasAfetadas);

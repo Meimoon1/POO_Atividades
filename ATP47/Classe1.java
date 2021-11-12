@@ -17,8 +17,10 @@ public class Classe1{
                 String nome = resultado.getString("nome");
                 String descricao = resultado.getString("descricao");
                 System.out.println("Id:"+id+" Nome:"+ nome+" Descricao:"+descricao+"\n");
-            }
 
+                
+            }
+            cn.close();
         } catch (Exception e) {
             System.out.println("Não foi possível acessar o arquivo");
         }
