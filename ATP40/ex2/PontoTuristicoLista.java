@@ -8,7 +8,7 @@ public class PontoTuristicoLista implements IPontosTuristicos{
     @Override
     public String salvar(PontosTuristicos model) {
         this.lista.add(model);
-        return String.format("Ponto turístico: %s salvo com sucesso!", model.nome);
+        return "Salvo com sucesso!";
     }
 
     @Override
