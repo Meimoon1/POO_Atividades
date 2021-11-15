@@ -6,6 +6,6 @@ public class PontosTuristicos{
 
     @Override
     public String toString() {
-        return "Nome: " + this.nome + "Descrição: " + this.descricao + "Localização: ";
+        return String.format("%s;%s;%s", this.nome, this.descricao, this.localizacao);
     }
 }
