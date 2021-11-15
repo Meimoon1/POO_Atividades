@@ -43,7 +43,7 @@ public class Main{
                         num2 = lerNumero("Informe o outro número");
                         evitaZero(num2);
                     } catch (RuntimeException ex) {
-                        System.out.println(ex.getMessage()+"Digite novamente");
+                        System.out.println(ex.getMessage()+"\nDigite novamente");
                         validacao = false;
                     }
               } while (!validacao);
