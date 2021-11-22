@@ -12,7 +12,7 @@ import model.Categoria;
 public class CategoriaDao {
     private Connection con;
 
-    public CategoriaDao(){
+    public CategoriaDao(Connection con){
         this.con = con;
     }
 
