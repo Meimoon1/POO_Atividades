@@ -4,6 +4,11 @@ public class Categoria{
     private String nome;
     private String descricao;
 
+    @Override
+    public String toString() {
+        return "ID:"+this.id+"\nNome:"+this.nome+"\nDescrição:"+this.descricao+"\n";
+    }
+
     public Categoria(String nome){
         this.nome = nome;
     }
