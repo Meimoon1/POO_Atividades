@@ -1,17 +1,17 @@
 package view;
 import java.sql.Statement;
+import utils.ConnectionFactory;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class Classe2Create{
     public static void main(String[] args) {
-        try {
-            String nome = "Doces";
-            String descricao = "Doces diversos e caseiros";
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "123456");
-
+        try(Connection con = new ConnectionFactory().getConnection()) {
+            String nome = "Acessórios e Moda";
+            String descricao = "Acessórios em geral";
+            
             PreparedStatement prepStatement = con.prepareStatement("INSERT INTO categoria(nome, descricao)VALUES(?, ?)", Statement.RETURN_GENERATED_KEYS);
             prepStatement.setString(1, nome);
             prepStatement.setString(2, descricao);
@@ -23,8 +23,7 @@ public class Classe2Create{
                 int id = ids.getInt("id");
                 System.out.println(id);
             }
-            con.close();
-        } catch (Exception e) {
+        } catch (SQLException e){
             e.printStackTrace();
         }
     }

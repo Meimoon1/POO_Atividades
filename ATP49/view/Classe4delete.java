@@ -1,21 +1,27 @@
 package view;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import utils.ConnectionFactory;
 
 public class Classe4delete {
     public static void main(String[] args) {
-        try {
+        try(Connection con = new ConnectionFactory().getConnection()) {
             int idDeletado = 3;
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "123456");
-    
-            PreparedStatement prepStatement = con.prepareStatement("DELETE FROM categoria WHERE id = ?");
-            prepStatement.setInt(1, idDeletado);
-            prepStatement.execute();
+            String sql = "DELETE FROM categoria WHERE id = ?";
 
-            con.close();
+            try(PreparedStatement prepStatement = con.prepareStatement(sql);) {    
+                prepStatement.setInt(1, idDeletado);
+                prepStatement.execute();
+
+                int linhasAfetadas = prepStatement.getUpdateCount();
+                System.out.println(linhasAfetadas);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         } 
-        catch (Exception e) {
+        catch (SQLException e) {
             e.printStackTrace();
         }
     }

@@ -1,26 +1,28 @@
 package view;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import utils.ConnectionFactory;
 
 public class Classe3update{
     public static void main(String[] args) {
-        try {
+        try(Connection con = new ConnectionFactory().getConnection()) {
             String nome = "Cama e mesa e banho";
-            String descricao = "Artigos diversos";
-            int id = 3;
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "123456");
+            int id = 11;
+            String sql = "UPDATE categoria SET nome=?, descricao=? WHERE id=?";
 
-            PreparedStatement prepStatement = con.prepareStatement("UPDATE categoria SET nome=?, descricao=? WHERE id=?");
+            PreparedStatement prepStatement = con.prepareStatement(sql);
 
             prepStatement.setString(1,nome);
-            prepStatement.setString(2,descricao);
-            prepStatement.setInt(3, id);
+            prepStatement.setInt(2, id);
 
-            prepStatement.execute();
-            con.close();      
+            prepStatement.execute();  
+            
+            int linhasAfetadas = prepStatement.getUpdateCount();
+            System.out.println(linhasAfetadas);
         } 
-        catch (Exception e) {
+        catch (SQLException e) {
             e.printStackTrace();
         }
     }
