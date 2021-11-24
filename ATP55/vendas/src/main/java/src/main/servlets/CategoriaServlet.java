@@ -1,3 +1,4 @@
+package src.main.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -6,19 +7,20 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import models.Categoria;
 
 @WebServlet(urlPatterns = "/categoria")
 public class CategoriaServlet extends HttpServlet{
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //armazenando o parâmetro em uma variável
-        String nomeCategoria = req.getParameter("nome");
-        String descricaoCategoria = req.getParameter("descricao");
+        //criando cateogira e passando requisição
+        Categoria c1 = new Categoria();
+        c1.setNome(req.getParameter("nome"));
+        c1.setDescricao(req.getParameter("descricao"));
 
         PrintWriter out = resp.getWriter();
         out.println("Modulo Categoria");
-
-        out.printf("Nome da categoria: %s \nDescricao: %s", nomeCategoria,descricaoCategoria);
+        out.printf("Nome da categoria: %s \nDescricao: %s", c1.getNome(), c1.getDescricao());
 
     }  
 }

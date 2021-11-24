@@ -1,3 +1,5 @@
+package models;
+
 public class Categoria {
     private String nome;
     private String descricao;
