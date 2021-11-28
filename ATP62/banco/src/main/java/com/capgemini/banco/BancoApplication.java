@@ -29,7 +29,6 @@ public class BancoApplication implements CommandLineRunner{
 		repository.save(model);	
 
 		repository.findAll().forEach(c -> System.out.printf("Id: %d - Nome: %s - Sobrenome:%s \n",c.getId(),c.getNome(),c.getSobrenome()));
-
 	}
 
 }
