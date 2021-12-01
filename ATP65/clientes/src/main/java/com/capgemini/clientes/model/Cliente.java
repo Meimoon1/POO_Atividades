@@ -6,41 +6,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name = "cliente")
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Getter @Setter
     private int id;
+
+    @Getter @Setter
     private String nome;
+
+    @Getter @Setter
     private String sobrenome;
+
+    @Getter @Setter
     private String cpf;
-
-    public void setId(int id) {
-        this.id = id;
-    }
-    public int getId() {
-        return id;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-    public String getNome() {
-        return nome;
-    }
-
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
-    }
-    public String getSobrenome() {
-        return sobrenome;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-    public String getCpf() {
-        return cpf;
-    }
 }

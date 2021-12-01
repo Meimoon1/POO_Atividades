@@ -2,8 +2,6 @@ package com.capgemini.clientes.controller;
 
 import java.util.List;
 
-
-
 import com.capgemini.clientes.model.Cliente;
 import com.capgemini.clientes.repository.ClienteRepository;
 
@@ -14,28 +12,29 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class ClienteController{
+public class ClienteController {
     private ClienteRepository repository;
 
-    public ClienteController(ClienteRepository repository){
+    public ClienteController(ClienteRepository repository) {
         this.repository = repository;
     }
 
     @GetMapping("/cliente")
-    public String Clientes(Model req){
+    public String clientes(Model req){
         List<Cliente> lista = (List<Cliente>)repository.findAll();
-        req.addAttribute("clientes", lista);
+        req.addAttribute("cliente", lista);
         return "clientes";
+        
     }
 
     @GetMapping("/cliente/form")
     public String formulario(Model req){
-        Cliente model = new Cliente();
+        Cliente model = new Cliente();        
         req.addAttribute("cliente", model);
         return "cadastro-clientes";
     }
 
-    @PostMapping("/cliente/salvar")
+    @PostMapping("/cliente/salvar")    
     public String salvar(Cliente model){
         repository.save(model);
         return "redirect:/cliente";
@@ -47,7 +46,7 @@ public class ClienteController{
         return "redirect:/cliente";
     }
 
-    @GetMapping("/cliente/editar/{id}")
+    @GetMapping("/filme/editar/{id}")
     public String editar(@PathVariable int id, Model req){
         Cliente model = repository.findById(id).get();
         req.addAttribute("cliente", model);

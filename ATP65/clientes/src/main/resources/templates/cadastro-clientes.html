@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário</title>
-</head>
+    <head th:replace="~{base :: head(Clientes-Cadastrar)}"></head>
 <body>
-    <h1>Cadastro de Clientes</h1>
-    <form action="/cliente/salvar" method="post">
-        <input type="hidden" name="id" id="id" th:value="${cliente.id}">
-        nome: <input type="text" name="nome" id="nome" th:value="${cliente.nome}"> <br>
-        sobrenome: <input type="text" name="sobrenome" id="sobrenome" th:value="${cliente.sobrenome}"> <br>
-        cpf: <input type="text" name="cpf" id="cpf" th:value="${cliente.cpf}"> <br>
-        <input type="submit" value="Salvar">
-    </form>
-    <br />
-    <a href="/cliente">Voltar para página inicial</a>
-    <br />
+    <header th:replace="~{base::cabecalho}"></header>
+    <main>
+        <h1>Cadastro de Clientes</h1>
+        <form action="/cliente/salvar" method="post">
+            <input type="hidden" name="id" id="id" th:value="${cliente.id}">
+    
+            <div class="mb-3">
+                <label for="nome" class="form-label">nome:</label>            
+                <input class="form-control" type="text" name="nome" id="nome" th:value="${cliente.nome}">
+            </div>
+            <div class="mb-3">
+                <label for="nomeDiretor" class="form-label">sobrenome:</label>                
+                <input class="form-control" type="text" name="sobrenome" id="sobrenome" th:value="${cliente.sobrenome}">
+            </div>
+            <div class="mb-3">
+                <label for="genero" class="form-label">cpf:</label>                 
+                <input class="form-control" type="text" name="cpf" id="cpf" th:value="${cliente.cpf}">
+            </div>      
+            <input class="btn  btn-primary" type="submit" value="Salvar">
+        </form>
+        <br />
+        <a class="btn  btn-secondary" href="/cliente">Voltar para lista </a>
+        <br />
+    </main>   
 </body>
 </html>
