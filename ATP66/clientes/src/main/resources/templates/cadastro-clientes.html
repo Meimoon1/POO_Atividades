@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head th:replace="~{base :: head(Clientes-Cadastrar)}"></head>
+<body>
+    <header th:replace="~{base::cabecalho}"></header>
+    <main>
+        <h1>Cadastro de Clientes</h1>
+        <form action="/cliente/salvar" method="post">
+            <input type="hidden" name="id" id="id" th:value="${cliente.id}">
+    
+            <div class="mb-3">
+                <label for="nome" class="form-label">nome:</label>            
+                <input class="form-control" type="text" name="nome" id="nome" th:value="${cliente.nome}">
+            </div>
+            <div class="mb-3">
+                <label for="nomeDiretor" class="form-label">sobrenome:</label>                
+                <input class="form-control" type="text" name="sobrenome" id="sobrenome" th:value="${cliente.sobrenome}">
+            </div>
+            <div class="mb-3">
+                <label for="genero" class="form-label">cpf:</label>                 
+                <input class="form-control" type="text" name="cpf" id="cpf" th:value="${cliente.cpf}">
+            </div>      
+            <input class="btn  btn-primary" type="submit" value="Salvar">
+        </form>
+        <br />
+        <a class="btn  btn-secondary" href="/cliente">Voltar para lista </a>
+        <br />
+    </main>   
+</body>
+</html>
